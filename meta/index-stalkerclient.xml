@@ -1,0 +1,8 @@
+<index>
+	<package details="plugin_stalkerclient.xml" name="Stalker Client" packagename="enigma2-plugin-extensions-stalkerclient" shortdescription="A native client for the Stalker Middleware streaming server">
+		<prerequisites>
+			<tag type="Network" />
+			<tag type="Multimedia" />
+		</prerequisites>
+	</package>
+</index>

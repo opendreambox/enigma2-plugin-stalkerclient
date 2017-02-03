@@ -17,6 +17,7 @@ PKG_CHECK_MODULES(ENIGMA2, enigma2)
 
 AC_CONFIG_FILES([
 Makefile
+meta/Makefile
 src/Makefile
 src/StalkerClient/Makefile
 ])

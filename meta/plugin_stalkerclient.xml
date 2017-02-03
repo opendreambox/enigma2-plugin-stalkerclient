@@ -1,0 +1,16 @@
+<default>
+	<prerequisites>
+		<tag type="Network" />
+		<tag type="Multimedia" />
+	</prerequisites>
+	<info>
+		<author>Dream Property GmbH</author>
+		<name>Stalker Client</name>
+		<packagename>enigma2-plugin-extensions-stalkerclient</packagename>
+		<shortdescription>A native client for the Stalker Middleware streaming server</shortdescription>
+		<description>Add channels of a Stalker streaming server to your channel list and watch them</description>
+	</info>
+	<files type="package"> <!-- without version, without .deb  -->
+		<file type="package" name="enigma2-plugin-extensions-stalkerclient" />
+	</files>
+</default>
