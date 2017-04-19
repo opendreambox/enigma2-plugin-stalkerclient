@@ -1,8 +1,0 @@
-Package: enigma2-plugin-extensions-stalkerclient
-Version: 0.9.0
-Architecture: all
-Section: extra
-Priority: optional
-Maintainer: reichi
-Description: Use Stalker Middleware with a dreambox
-Depends: enigma2, python-twisted-web
