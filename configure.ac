@@ -6,7 +6,6 @@ AM_PATH_PYTHON
 AC_CONFIG_FILES([
 Makefile
 meta/Makefile
-src/Makefile
-src/StalkerClient/Makefile
+StalkerClient/Makefile
 ])
 AC_OUTPUT
