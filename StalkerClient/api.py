@@ -25,7 +25,7 @@ DEFAULT_ENDPOINT = "/server/load.php"
 MATRIX_ENDPOINT = "/server/matrix.php"
 
 ifaces = iNetworkInfo.getConfiguredInterfaces()
-mac = "00:00:00:00:00"
+mac = "00:00:00:00:00:00"
 for iface in ifaces.itervalues():
 	mac = iface.ethernet.mac
 	if mac.startswith("00:09:34"):
@@ -188,7 +188,15 @@ class Stalker(object):
 		self.call(action, params, self._onAllServicesReady)
 
 	def _onAllServicesReady(self, data={}):
-		self._onGenreServicesReady("All", data)
+		if not data:
+			return
+		self._onGenreServicesReady(
+			StalkerGenre({
+				"title" : _("All"),
+				"alias" : _("All"),
+				"id"	: 999999999,
+			}),
+			data)
 
 	def _parseGenres(self, data={}):
 		if not data:
@@ -366,6 +374,7 @@ class Stalker(object):
 		if not svc:
 			callback(None)
 			return
+		Log.w(svc.http_temp_link)
 		if svc.http_temp_link:
 			def onTempLinkReady(data):
 				svc.applyTemporaryUrl(data)
@@ -417,9 +426,15 @@ class StalkerService(StalkerBaseService):
 		self.number = int(data.get("number", 0))
 		self._cmd = data["cmd"]
 		self.applyUrl(data["cmd"])
-		self.http_temp_link = data["use_http_tmp_link"]
-		self.load_balancing = data["use_load_balancing"]
+		self.http_temp_link = self.intValue(data["use_http_tmp_link"])
+		self.load_balancing = self.intValue(data["use_load_balancing"])
 		self.isOpen = data.get("open", 0) == 1
+
+	def intValue(self, value):
+		try:
+			return int(value)
+		except:
+			return 0
 
 	def dict(self):
 		data = {}
